@@ -56,3 +56,4 @@ jobs:
             rm next.gz
             rm node_modules.gz
             pm2 restart web-tcgplayer
+#pm2 start "npm start" -n web-tcgplayer

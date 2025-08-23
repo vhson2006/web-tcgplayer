@@ -7,8 +7,8 @@ import { SET_IS_SERVER } from "store/reducer";
 import "pages/style.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
-import { theme } from "themes/blueberry";
-// import { theme } from 'themes/handwritten';
+// import { theme } from "themes/blueberry";
+import { theme } from 'themes/handwritten';
 import "@fontsource/grape-nuts";
 import "@fontsource/swanky-and-moo-moo";
 import 'react-toastify/dist/ReactToastify.css';
