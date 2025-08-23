@@ -1,0 +1,58 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build project
+        env:
+          NODE_OPTIONS: "--max_old_space_size=16000"
+          NEXT_PUBLIC_API_URL: https://api.shanovina.com/
+          NEXT_PUBLIC_WEB: https://shanovina.com
+          GOOGLE_MAP: AIzaSyDKzzYIUVEkPiuujKjd_H_szKm5pHwpivk
+          GOOGLE_ANALYTICS: G-MRZRNB1YVR
+          ESLINT_NO_DEV_ERRORS: true
+          DISABLE_ESLINT_PLUGIN: true
+        run: |
+          # Example build commands for a Node.js project
+          npm install
+          npm run build
+          tar -cvzf next.gz .next
+          tar -cvzf node_modules.gz node_modules     
+
+      - name: Copy build to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          source: "./next.gz,./node_modules.gz"
+          target: "/home/ubuntu/web-tcgplayer" 
+
+      - name: Excute and Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            cd web-tcgplayer
+            git pull origin master
+            tar -xvzf next.gz
+            tar -xvzf node_modules.gz
+            rm next.gz
+            rm node_modules.gz
+            pm2 restart web-tcgplayer
