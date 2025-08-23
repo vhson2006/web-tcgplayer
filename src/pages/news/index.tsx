@@ -41,7 +41,7 @@ const NewsPage = (props: PageProps) => {
     <Flex as="main" role="main" direction="column" flex="1" bg={'#f5f5fa'}>
       <Container flex="1">
         <ProductBreadcrumb/>
-        <Box maxW="10xl" mx="auto" my="5">
+        <Box  mx="auto" my="5">
           <Stack spacing="10" shouldWrapChildren>
             <PageHeader title={t("news#title")} description="" />
             <NewsGrid />

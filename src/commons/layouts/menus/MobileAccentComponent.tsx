@@ -10,15 +10,14 @@ export const MobileAccentComponent = () => {
   const { newsCategory, productCategory } = useSelector(({ common }: any) => common);
   
   return (
-    <Menu>
+    <Menu >
       <MenuButton
         as={Button}
-        rounded={"full"}
-        variant={"link"}
+        variant={"ghost-on-accent"}
         cursor={"pointer"}
         minW={0}
       >
-        <Box as={MdMenu} fontSize="3xl" />
+        <Box as={MdMenu} fontSize="2xl" />
         {/* <HStack>
           <Image src="/logo.png" height="8" alt="Yugioh" />&nbsp;
           <Text color={'on-accent'} fontWeight='bold' textTransform="uppercase">{t("menu#home")}</Text>

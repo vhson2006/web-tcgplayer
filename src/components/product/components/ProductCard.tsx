@@ -1,4 +1,4 @@
-import { Box, HStack, Stack, Tag, Text, useColorModeValue, Button, Card, CardBody } from "@chakra-ui/react";
+import { Box, HStack, Stack, Tag, Text, useColorModeValue, Button, Tooltip } from "@chakra-ui/react";
 import useTranslation from "next-translate/useTranslation";
 import { PriceTag } from "components/product/components/PriceTag";
 import { Rating } from "components/product/components/Rating";
@@ -11,7 +11,7 @@ import { QuantityPicker } from "modules/inputs/QuantityPicker";
 export const ProductCard = (props: any) => {
   const { product, addToCart } = props;
   const { t, lang } = useTranslation("common");
-console.log(product)
+
   return (
     <Stack spacing={{ base: "3", md: "5" }} bg={'white'} p={4}>
       <Box position="relative">
@@ -35,12 +35,16 @@ console.log(product)
       </Button>
       <Stack>
         <Stack spacing="0.25">
+          <Tooltip label={product?.name}>
           <Text fontWeight="medium" noOfLines={1}>
             <NextLink href={makeUrl(`/product/${product.slug}`, lang)} passHref>
               {product.name}
             </NextLink>
           </Text>
-          <Text noOfLines={3}>{product.storage.description}</Text>
+          </Tooltip>
+          <Text noOfLines={3}>{product.storage.serial}</Text>
+          <Text noOfLines={3}>{product.storage.rarity}</Text>
+
         </Stack>
         <PriceTag
           currency="VND"

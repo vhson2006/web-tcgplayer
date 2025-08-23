@@ -21,35 +21,22 @@ import ShopGrid from 'components/product/components/ShopGrid'
 import { useSelector } from 'react-redux'
 import ShopPagination from 'components/product/components/ShopPagination'
 import useTranslation from 'next-translate/useTranslation'
+import CenterSearchForm from 'components/product/components/CenterSearchForm'
 
 export const FiltersWithDropdown = () => {
   const { error, total, isRequesting } = useSelector(({ product }: any) => product);
   const { t } = useTranslation("common");
   
   return (
-    <Box
-      // maxW="10xl"
-      mx="auto"
-      // px={{ base: '4', md: '8', lg: '12' }}
-      // py={{ base: '6', md: '8', lg: '12' }}
-    >
-      
+    <Box mx="auto">
       <Heading size="lg" mt={{ base: '6', md: '10' }} mb="8">
       {t("product#title")}
       </Heading>
   
       <Flex justify="space-between" align="center" display={{ base: 'none', md: 'flex' }}>
-        <HStack spacing="6">
-          {/* <Text color={mode('gray.600', 'gray.400')} fontWeight="medium" fontSize="sm">
-            Filter by
-          </Text>
-          <SimpleGrid display="inline-grid" spacing="4" columns={4}>
-            <SizeFilterPopover />
-            <PriceFilterPopover />
-            <ColorFilterPopover />
-            <CheckboxFilterPopover />
-          </SimpleGrid> */}
-        </HStack>
+          <Center w='800px' bg='green.500'>
+            <CenterSearchForm width='100%'/>
+          </Center>
   
         <HStack flexShrink={0}>
           <Text

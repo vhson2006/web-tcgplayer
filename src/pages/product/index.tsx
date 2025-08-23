@@ -58,8 +58,8 @@ const ProductPage = (props: any) => {
       <Container flex="1">
         <ProductBreadcrumb/>
         
-        <FiltersWithDropdown/>
-        {/* <ProductBreadcrumb data={[{ slug: 'test', label: 'test'}, { slug: 'test2', label: 'test2'}]}/>
+        {/* <FiltersWithDropdown/> */}
+
         <Box  mx="auto" my="5">
           <PageHeader title={t("product#title")} description="" />
           <Center>
@@ -69,7 +69,7 @@ const ProductPage = (props: any) => {
           <Center>
             <ShopPagination total={total}/>
           </Center>
-        </Box> */}
+        </Box>
       </Container>
     </Flex>
   );

@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, SimpleGrid, Stack, Text, StackDivider, useColorModeValue, VStack, Button, HStack, FormControl, FormLabel } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, SimpleGrid, Stack, Text, StackDivider, useColorModeValue, Tag, Button, HStack, FormControl, FormLabel, Center } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -70,55 +70,66 @@ const ProductDetail = (props: any) => {
           <PageHeader title={t("product#detail#title")} description="" />
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
-            spacing={{ base: 8, md: 10 }}
-            py={{ base: 6, md: 12 }}
+            spacing={{ base: 4, sm: 6 }}
+            py={{ base: 4, md: 8 }}
           >
             {// take care have bug here
               detail?.productImages &&
-              <Gallery rootProps={{ overflow: 'hidden', flex: '1' }} images={[{alt: detail.name, url: detail?.image}]}/>
+              <Stack w={240} mx="auto">
+                <Gallery rootProps={{ overflow: 'hidden', flex: '1' }} images={[{alt: detail.name, url: detail?.image}]}/>
+              </Stack>
             }
-            <Stack spacing={{ base: 6, md: 10 }}>
-              <HStack spacing={{ base: 4, sm: 6 }} >
+            <Stack
+              direction={"column"}
+              divider={<StackDivider borderColor={useColorModeValue("gray.200", "gray.600")}/>}
+            >
+              <HStack>
                 <Text w={'25%'}>{t('product#detail#name')}</Text>
                 <Text>
                   {detail?.name}
                 </Text>
               </HStack>
-              <Stack
-                spacing={{ base: 4, sm: 6 }}
-                direction={"column"}
-                divider={
-                  <StackDivider
-                    borderColor={useColorModeValue("gray.200", "gray.600")}
-                  />
-                }
-              >
-                <HStack spacing={{ base: 4, sm: 6 }}>
-                  <Text w={'25%'}>{t('product#detail#price')}</Text>
-                  <PriceTag
-                    currency="VND"
-                    price={detail.price}
-                    priceProps={{ color: useColorModeValue("gray.800", "gray.200") }}
-                    // salePrice={detail.promotionPrice}
-                    salePriceProps={{
-                      color: useColorModeValue("red.500", "red.400"),
-                      fontWeight: "bold",
-                    }}
-                  />
-                </HStack>
-                <HStack spacing={{ base: 4, sm: 6 }}>
-                  <Text w={'25%'}>{t('product#detail#quantity')}</Text>
-                  <Box w={'50%'}>
-                    <QuantityPicker max={10} value={quantity} onChange={setQuantity}/>
-                  </Box>
-                </HStack>
-              </Stack>
+              <HStack spacing={{ base: 4, sm: 6 }}>
+                <Text w={'25%'}>{t('product#detail#rarity')}</Text>
+                <Tag size={'md'} key={'md'} variant='chip' >{detail?.storage?.rarity}</Tag>
+              </HStack>
+              <HStack spacing={{ base: 4, sm: 6 }}>
+                <Text w={'25%'}>{t('product#detail#serial')}</Text>
+                <Text>{detail?.storage?.serial}</Text>
+              </HStack>
+              {/* <HStack spacing={{ base: 4, sm: 6 }}>
+                <Text w={'25%'}>{t('product#detail#pack')}</Text>
+                <Text>{detail?.storage?.pack}</Text>
+              </HStack> */}
+              <HStack spacing={{ base: 4, sm: 6 }}>
+                <Text w={'25%'}>{t('product#detail#release')}</Text>
+                <Text>{detail?.storage?.release}</Text>
+              </HStack>
+              <HStack spacing={{ base: 4, sm: 6 }}>
+                <Text w={'25%'}>{t('product#detail#price')}</Text>
+                <PriceTag
+                  currency="VND"
+                  price={detail?.price}
+                  priceProps={{ color: useColorModeValue("gray.800", "gray.200") }}
+                  // salePrice={detail.promotionPrice}
+                  salePriceProps={{
+                    color: useColorModeValue("red.500", "red.400"),
+                    fontWeight: "bold",
+                  }}
+                />
+              </HStack>
+              <HStack spacing={{ base: 4, sm: 6 }}>
+                <Text w={'25%'}>{t('product#detail#quantity')}</Text>
+                <Box w={'50%'}>
+                  <QuantityPicker max={10} value={quantity} onChange={setQuantity}/>
+                </Box>
+              </HStack>
               <Button onClick={addItemToCart} variant="primary">
                 {t("button#add")}
               </Button>
             </Stack>
           </SimpleGrid>
-          <Stack pb={{ base: 6, md: 12 }}>
+          <Stack p={{ base: 6, md: 12 }} mx="auto">
             <Text
               color={useColorModeValue("gray.500", "gray.400")}
               fontSize={"2xl"}

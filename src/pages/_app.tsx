@@ -18,7 +18,7 @@ import "@fontsource/fira-code/variable.css";
 import { ToastContainer } from "react-toastify";
 import ReactGA from "react-ga4";
 
-ReactGA.initialize(process.env.ga || '');
+// ReactGA.initialize(process.env.ga || '');
 class WrappedApp extends App {
   static getInitialProps = wrapper.getInitialAppProps(
     (store) =>

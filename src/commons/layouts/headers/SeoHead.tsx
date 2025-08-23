@@ -28,7 +28,7 @@ export const SeoHead = (props: any) => {
       return jsonParse(newsDetail.predefine)[lang]
     }
     if (title === 'product') {
-      return productDetail.description
+      return productDetail?.storage?.description
     }
     return t(description)
   }

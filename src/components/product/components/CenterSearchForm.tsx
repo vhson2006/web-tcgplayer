@@ -23,7 +23,7 @@ const CenterSearchForm = (props: any) => {
 
   return (
     <Stack>
-      <Center>
+      <Center width={{ base: 300, md: 1000 }}>
         <form onSubmit={form?.handleSubmit(searchHandler)} style={{ width: '80%' }}>
           <Stack spacing={{base: 6, md: 12}} direction={{ base: "column", md: "row" }} w={{base: "85%", md: "full"}}>
             <Input
@@ -31,7 +31,7 @@ const CenterSearchForm = (props: any) => {
               type={"text"}
               placeholder={t("button#search")}
               color={useColorModeValue("gray.800", "gray.200")}
-              bg={useColorModeValue("gray.100", "gray.600")}
+              bg={useColorModeValue("orange.100", "orange.600")}
               rounded={"full"}
               border={0}
               _focus={{
@@ -39,13 +39,13 @@ const CenterSearchForm = (props: any) => {
                 outline: "none",
               }}
             />
-            <Button variant="primary" rounded={"full"} type="submit">
+            <Button variant="primary"  type="submit">
               {t("button#search")}
             </Button>
           </Stack>
         </form>
       </Center>
-      <SimpleGrid
+      {/* <SimpleGrid
         columns={{ base: 2, sm: 3, md: 6, lg: 8 }}
         gap={{ base: "2", lg: "4" }}
         my={4}
@@ -57,7 +57,7 @@ const CenterSearchForm = (props: any) => {
           </Tag>
         )
       }
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Stack>
   );
 };

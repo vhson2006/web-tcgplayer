@@ -21,7 +21,7 @@ interface GalleryProps {
 }
 
 export const Gallery = (props: GalleryProps) => {
-  const { images, aspectRatio = 300/443, rootProps } = props
+  const { images, aspectRatio = 300/437, rootProps } = props
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const [ref, slider] = useCarousel({
