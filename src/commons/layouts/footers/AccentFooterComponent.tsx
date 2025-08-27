@@ -11,7 +11,7 @@ export const AccentFooterComponent = (props: any) => {
       <Container>
       
         <Box
-          minH="20"
+          minH="10"
           role="presentation"
           // py="3"
           px="4"

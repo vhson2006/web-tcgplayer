@@ -20,16 +20,16 @@ export const DiscoverOptions = (props: any) => {
     >
       <Stack spacing={{ base: "8", lg: "10" }}>
         <Stack spacing={{ base: "2", lg: "4" }}>
-          <Heading size="xl" color={lineColor}>
+          <Heading size="md" color={lineColor}>
             {t("home#summary")}
           </Heading>
-          <Text textStyle="md" >
+          <Text  fontSize="md" textStyle="md" >
             {t("home#content")}
           </Text>
         </Stack>
         <HStack>
           <NextLink href={makeUrl('/product', lang)} passHref>
-            <Button variant="link" color={lineColor} fontWeight="bold" fontSize="lg">
+            <Button variant="link" color={lineColor} fontWeight="bold" fontSize="sm">
               {t("home#find-action")}
             </Button>
           </NextLink>
@@ -37,7 +37,7 @@ export const DiscoverOptions = (props: any) => {
         </HStack>
         <HStack>
           <NextLink color={lineColor} href={makeUrl('/auth/login', lang)}>
-            <Button variant="link" color={lineColor} fontWeight="bold" fontSize="lg">
+            <Button variant="link" color={lineColor} fontWeight="bold" fontSize="sm">
               {t("home#sell-action")}
             </Button>
           </NextLink>

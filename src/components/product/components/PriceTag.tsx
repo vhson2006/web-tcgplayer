@@ -26,6 +26,7 @@ const Price = (props: PriceProps) => {
   const color = isOnSale ? onSaleColor : defaultColor;
   return (
     <Text
+      fontSize={'sm'}
       as="span"
       fontWeight="medium"
       color={color}
@@ -39,6 +40,7 @@ const Price = (props: PriceProps) => {
 
 const SalePrice = (props: TextProps) => (
   <Text
+    fontSize={'sm'}
     as="span"
     fontWeight="semibold"
     color={mode("gray.800", "gray.100")}

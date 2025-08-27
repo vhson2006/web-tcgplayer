@@ -33,7 +33,7 @@ const HomePage = (props: any) => {
       <Container flex="1">
         <ProductBreadcrumb/>
         <PageHeader title={t("home#title")} description="" />
-        <Text align="left" my="5" fontSize="xl">
+        <Text align="left" my="2" fontSize="md">
           {parse(t("home#information") || '')}
         </Text>
         

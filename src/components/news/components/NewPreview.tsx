@@ -7,13 +7,13 @@ export const NewPreview = (props: any) => {
       <Box
         maxW={{ base: "100%", sm: "100%", md: "35%" }}
         zIndex="2"
-        marginRight={{ base: "0", sm: "5%" }}
-        marginLeft={{ base: "0", sm: "5%" }}
+        marginRight={{ base: "0", sm: "5%", md: "2%" }}
+        marginLeft={{ base: "0", sm: "5%", md: "2%" }}
         // marginTop="5%"
       >
         <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
           <Image
-            boxSize={{ base: '400px', sm: '400px', md: '200px' }}
+            boxSize={{ base: '150px' }}
             borderRadius="lg"
             src={post.image?.url}
             alt="some good alt text"

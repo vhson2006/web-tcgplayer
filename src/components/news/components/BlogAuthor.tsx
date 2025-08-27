@@ -10,9 +10,9 @@ export const BlogAuthor: React.FC<BlogAuthorProps> = (props) => {
         src="/default.jpg"
         alt={`Avatar of ${props.name}`}
       />
-      <Text fontWeight="medium" noOfLines={1}>{props.name}</Text>
+      <Text fontSize="sm" noOfLines={1}>{props.name}</Text>
       <Text>—</Text>
-      <Text noOfLines={1}>{props.date.toLocaleDateString()}</Text>
+      <Text fontSize="sm" noOfLines={1}>{props.date.toLocaleDateString()}</Text>
     </HStack>
   );
 };

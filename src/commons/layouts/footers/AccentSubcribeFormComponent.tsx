@@ -9,8 +9,8 @@ export const AccentSubcribeFormComponent = (props: any) => {
 
   return (
     <Stack
-      pt="8"
-      pb="4"
+      // pt="8"
+      py="1"
       justify="space-between"
       direction={{ base: "column-reverse", md: "row" }}
       align="center"

@@ -25,14 +25,14 @@ export const NewsGrid = (props: any) => {
           >
             <Tags tags={post?.newsTags?.map((n: any) => jsonParse(n.typeName)[lang])} />
             <Stack spacing="0.25">
-              <Text fontSize="3xl" marginTop="1" noOfLines={1}>
+              <Text fontSize="md" fontWeight={'medium'} marginTop="1" noOfLines={1}>
                 <NextLink href={makeUrl(`/news/${post.slug}`, lang)} passHref>
                   {jsonParse(post?.title)[lang] }
                 </NextLink>
               </Text>
             </Stack>
             <Stack >
-              <Text fontSize="xl" marginTop="2" noOfLines={2} >
+              <Text fontSize="sm" marginTop="2" noOfLines={2} >
                 {jsonParse(post.predefine)[lang]?.replace(/<[^>]*>/g, "") || ''}
               </Text>
             </Stack>

@@ -36,14 +36,14 @@ export const ProductCard = (props: any) => {
       <Stack>
         <Stack spacing="0.25">
           <Tooltip label={product?.name}>
-          <Text fontWeight="medium" noOfLines={1}>
+          <Text fontSize={'md'} fontWeight="medium" noOfLines={1} mb={2}>
             <NextLink href={makeUrl(`/product/${product.slug}`, lang)} passHref>
               {product.name}
             </NextLink>
           </Text>
           </Tooltip>
-          <Text noOfLines={3}>{product.storage.serial}</Text>
-          <Text noOfLines={3}>{product.storage.rarity}</Text>
+          <Text fontSize={'sm'} noOfLines={3}>{product.storage.serial}</Text>
+          <Text fontSize={'sm'} noOfLines={3}>{product.storage.rarity}</Text>
 
         </Stack>
         <PriceTag

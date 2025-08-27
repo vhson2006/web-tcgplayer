@@ -13,7 +13,7 @@ export const GeneralButton = (props: any) => {
     >
       <HStack spacing="3">
         {icon ? icon : <></>}
-        {label && <Text>{t(label)}</Text>}
+        {label && <Text fontSize="sm">{t(label)}</Text>}
       </HStack>
     </Button>
   ) : (

@@ -13,7 +13,6 @@ import ShopGrid from "components/product/components/ShopGrid";
 import ShopPagination from "components/product/components/ShopPagination";
 import { actions } from "components/product/slice";
 import { actions as constAction } from "commons/consts/slice";
-
 import { escapeDoubleQuote, usePath } from "utils/link";
 import { initialFetch } from "store/helper";
 import ProductBreadcrumb from "commons/layouts/breadcrumb";
@@ -57,9 +56,7 @@ const ProductPage = (props: any) => {
     <Flex as="main" role="main" direction="column" flex="1" bg={'#f5f5fa'}>
       <Container flex="1">
         <ProductBreadcrumb/>
-        
         {/* <FiltersWithDropdown/> */}
-
         <Box  mx="auto" my="5">
           <PageHeader title={t("product#title")} description="" />
           <Center>
