@@ -7,7 +7,7 @@ import { AuthAccess, PublicAccess, PrivateAccess } from "commons/securities";
 import CountdownOnBack from "components/CountdownOnBack";
 import NavWithCenteredSearch from "components/NavWithCenteredSearch";
 import useTranslation from "next-translate/useTranslation";
-
+ 
 export const renderPublicComponent = (element: any) => {
   const { t } = useTranslation("common");
   
