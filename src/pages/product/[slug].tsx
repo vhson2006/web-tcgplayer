@@ -1,4 +1,9 @@
-import { Box, Container, Flex, Heading, SimpleGrid, Stack, Text, StackDivider, useColorModeValue, Tag, Button, HStack, FormControl, FormLabel, Center } from "@chakra-ui/react";
+import { 
+  Box, Container, Flex, Heading, SimpleGrid, Stack, Text, 
+  StackDivider, useColorModeValue, Tag, Button, HStack, 
+  FormControl, FormLabel, Center, useBreakpointValue,
+  TabIndicator, TabList, TabPanel, TabPanels, Tabs, Tab
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +27,8 @@ import ProductBreadcrumb from "commons/layouts/breadcrumb";
 
 const ProductDetail = (props: any) => {
   const { isServer } = props;
+    const isMobile = useBreakpointValue({ base: true, md: false })
+
   const [ quantity, setQuantity ] = useState<any>(1);
   const { detail, isError } = useSelector(({ product }: any) => product);
   const router = useRouter();
@@ -73,71 +80,88 @@ const ProductDetail = (props: any) => {
             spacing={{ base: 4, sm: 6 }}
             py={{ base: 4, md: 8 }}
           >
+            <Box width={400} >
             {// take care have bug here
               detail?.productImages &&
-              <Stack w={240} mx="auto">
+              <Stack w={240} ml={isMobile ? undefined : "auto"} mx={isMobile ? 'auto' : undefined}>
                 <Gallery rootProps={{ overflow: 'hidden', flex: '1' }} images={[{alt: detail.name, url: detail?.image}]}/>
               </Stack>
             }
-            <Stack
-              direction={"column"}
-              divider={<StackDivider borderColor={useColorModeValue("gray.200", "gray.600")}/>}
-            >
-              <HStack>
-                <Text w={'25%'}>{t('product#detail#name')}</Text>
-                <Text>
-                  {detail?.name}
-                </Text>
-              </HStack>
-              <HStack spacing={{ base: 4, sm: 6 }}>
-                <Text w={'25%'}>{t('product#detail#rarity')}</Text>
-                <Tag size={'md'} key={'md'} variant='chip' >{detail?.storage?.rarity}</Tag>
-              </HStack>
-              <HStack spacing={{ base: 4, sm: 6 }}>
-                <Text w={'25%'}>{t('product#detail#serial')}</Text>
-                <Text>{detail?.storage?.serial}</Text>
-              </HStack>
-              {/* <HStack spacing={{ base: 4, sm: 6 }}>
-                <Text w={'25%'}>{t('product#detail#pack')}</Text>
-                <Text>{detail?.storage?.pack}</Text>
-              </HStack> */}
-              <HStack spacing={{ base: 4, sm: 6 }}>
-                <Text w={'25%'}>{t('product#detail#release')}</Text>
-                <Text>{detail?.storage?.release}</Text>
-              </HStack>
-              <HStack spacing={{ base: 4, sm: 6 }}>
-                <Text w={'25%'}>{t('product#detail#price')}</Text>
-                <PriceTag
-                  currency="VND"
-                  price={detail?.price}
-                  priceProps={{ color: useColorModeValue("gray.800", "gray.200") }}
-                  // salePrice={detail.promotionPrice}
-                  salePriceProps={{
-                    color: useColorModeValue("red.500", "red.400"),
-                    fontWeight: "bold",
-                  }}
-                />
-              </HStack>
-              <HStack spacing={{ base: 4, sm: 6 }}>
-                <Text w={'25%'}>{t('product#detail#quantity')}</Text>
-                <Box w={'50%'}>
-                  <QuantityPicker max={10} value={quantity} onChange={setQuantity}/>
-                </Box>
-              </HStack>
-              <Button onClick={addItemToCart} variant="primary">
-                {t("button#add")}
-              </Button>
-            </Stack>
+            </Box>
+             <Box>
+              <Stack
+                divider={<StackDivider borderColor={useColorModeValue("gray.200", "gray.600")}/>}
+              >
+                <HStack>
+                  <Text fontSize="sm" w={'25%'}>{t('product#detail#name')}</Text>
+                  <Text fontSize="sm">
+                    {detail?.name}
+                  </Text>
+                </HStack>
+                <HStack spacing={{ base: 4, sm: 6 }}>
+                  <Text fontSize="sm" w={'25%'}>{t('product#detail#rarity')}</Text>
+                  <Tag size={'md'} key={'md'} variant='chip' >{detail?.storage?.rarity}</Tag>
+                </HStack>
+                <HStack spacing={{ base: 4, sm: 6 }}>
+                  <Text fontSize="sm" w={'25%'}>{t('product#detail#serial')}</Text>
+                  <Text fontSize="sm">{detail?.storage?.serial}</Text>
+                </HStack>
+                {/* <HStack spacing={{ base: 4, sm: 6 }}>
+                  <Text w={'25%'}>{t('product#detail#pack')}</Text>
+                  <Text>{detail?.storage?.pack}</Text>
+                </HStack> */}
+                <HStack spacing={{ base: 4, sm: 6 }}>
+                  <Text fontSize="sm" w={'25%'}>{t('product#detail#release')}</Text>
+                  <Text fontSize="sm">{detail?.storage?.release}</Text>
+                </HStack>
+                <HStack spacing={{ base: 4, sm: 6 }}>
+                  <Text fontSize="sm" w={'25%'}>{t('product#detail#price')}</Text>
+                  <PriceTag
+                    currency="VND"
+                    price={detail?.price}
+                    priceProps={{ color: useColorModeValue("gray.800", "gray.200") }}
+                    // salePrice={detail.promotionPrice}
+                    salePriceProps={{
+                      color: useColorModeValue("red.500", "red.400"),
+                      fontWeight: "bold",
+                    }}
+                  />
+                </HStack>
+                <HStack spacing={{ base: 4, sm: 6 }}>
+                  <Text fontSize="sm" w={'25%'}>{t('product#detail#quantity')}</Text>
+                  <Box w={'50%'}>
+                    <QuantityPicker max={10} value={quantity} onChange={setQuantity}/>
+                  </Box>
+                </HStack>
+                <Button onClick={addItemToCart} variant="primary">
+                  {t("button#add")}
+                </Button>
+              </Stack>
+            </Box>
           </SimpleGrid>
-          <Stack p={{ base: 6, md: 12 }} mx="auto">
-            <Text
-              color={useColorModeValue("gray.500", "gray.400")}
-              fontSize={"2xl"}
-              fontWeight={"300"}
-            >
-              {parse(detail.storage?.description?.replace(/\n/g, "<br />") || '')}
-            </Text>
-          </Stack>
+
+          <Tabs align='center' variant='enclosed-colored'>
+            <TabList>
+              <Tab>Description</Tab>
+            </TabList>
+            <TabIndicator mt='-1.5px' height='2px' bg='blue.500' borderRadius='1px' />
+            <TabPanels>
+
+              <TabPanel>
+                <Stack p={{ base: 6, md: 12 }} mx="auto">
+                  <Text
+                    color={useColorModeValue("gray.500", "gray.400")}
+                    fontSize={"sm"}
+                    fontWeight={"300"}
+                  >
+                    {parse(detail.storage?.description?.replace(/\n/g, "<br />") || '')}
+                  </Text>
+                </Stack>
+              </TabPanel>
+
+            </TabPanels>
+          </Tabs>
+          
         </Box>
       </Container>
     </Flex>

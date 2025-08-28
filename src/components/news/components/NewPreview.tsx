@@ -1,11 +1,11 @@
-import { Box, Flex, Link, Image, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Link, Image, useColorModeValue, Center } from "@chakra-ui/react";
 
 export const NewPreview = (props: any) => {
   const { post } = props;
   return (
     // <Flex flex="1" marginRight="3" position="relative" alignItems="center">
-      <Box
-        maxW={{ base: "100%", sm: "100%", md: "35%" }}
+      <Center
+        maxW={{ base: "100%", sm: "100%", md: '35%' }}
         zIndex="2"
         marginRight={{ base: "0", sm: "5%", md: "2%" }}
         marginLeft={{ base: "0", sm: "5%", md: "2%" }}
@@ -20,7 +20,7 @@ export const NewPreview = (props: any) => {
             objectFit="contain"
           />
         </Link>
-      </Box>
+      </Center>
     //   <Box zIndex="1" width="100%" position="absolute" height="100%">
     //     <Box
     //       bgGradient={useColorModeValue(

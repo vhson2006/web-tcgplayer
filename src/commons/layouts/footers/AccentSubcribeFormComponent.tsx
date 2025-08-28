@@ -1,4 +1,4 @@
-import { Stack, ButtonGroup, IconButton, Text } from "@chakra-ui/react";
+import { Stack, ButtonGroup, IconButton, Text, useBreakpointValue } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaFacebook, FaTiktok  } from "react-icons/fa";
 import NextLink from "next/link";
 import useTranslation from "next-translate/useTranslation";
@@ -6,6 +6,7 @@ import { makeUrl } from "utils/link";
 
 export const AccentSubcribeFormComponent = (props: any) => {
   const { t, lang } = useTranslation("common");
+    const isMobile = useBreakpointValue({ base: true, md: false })
 
   return (
     <Stack
@@ -15,15 +16,30 @@ export const AccentSubcribeFormComponent = (props: any) => {
       direction={{ base: "column-reverse", md: "row" }}
       align="center"
     >
-      <Text fontSize="sm" color="on-accent-subtle">
-        Shanovina &copy; {new Date().getFullYear()} |&nbsp;
-        <NextLink href={makeUrl(`/terms`, lang)} passHref>
-          {t('footer#terms')}
-        </NextLink> |&nbsp;
-        <NextLink href={makeUrl(`/privacy`, lang)} passHref>
-          {t('footer#privacy')}
-        </NextLink>
-      </Text>
+      {
+        !isMobile ? 
+        <Text fontSize="sm" color="on-accent-subtle">
+          Shanovina &copy; {new Date().getFullYear()} |&nbsp;
+          <NextLink href={makeUrl(`/terms`, lang)} passHref>
+            {t('footer#terms')}
+          </NextLink> |&nbsp;
+          <NextLink href={makeUrl(`/privacy`, lang)} passHref>
+            {t('footer#privacy')}
+          </NextLink>
+        </Text> :
+        <Text fontSize="sm" color="on-accent-subtle">
+          Shanovina &copy; {new Date().getFullYear()}
+          <br/>
+          <NextLink href={makeUrl(`/terms`, lang)} passHref>
+            {t('footer#terms')}
+          </NextLink>
+          <br/>
+          <NextLink href={makeUrl(`/privacy`, lang)} passHref>
+            {t('footer#privacy')}
+          </NextLink>
+        </Text>
+      }
+      
       
       <ButtonGroup variant="ghost-on-accent">
         <IconButton

@@ -52,7 +52,7 @@
   "table#products": "Sản Phẩm",
 
   "drawer#cart#title": "Giỏ Hàng",
-  "drawer#cart#quantity": "Số Lượng:",
+  "drawer#cart#quantity": "SLượng:",
   "drawer#cart#price": "Giá:",
   "drawer#cart#sum": "Tổng Cộng:",
   "drawer#cart#hint": "Đăng nhập để đặt hàng",
@@ -130,7 +130,7 @@
   "product#detail#rarity": "Loại:",
   "product#detail#pack": "Hộp:",
   "product#detail#release": "Ngày:",
-  "product#detail#quantity": "Số Lượng:",
+  "product#detail#quantity": "SLượng:",
 
   "profile#title": "Tài Khoản",
   "profile#tabs#info": "Thông Tin",

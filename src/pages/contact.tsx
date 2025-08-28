@@ -9,6 +9,7 @@ import { END } from "redux-saga";
 import { initialFetch } from "store/helper";
 import { jobListings, JobPosting } from "components/contact/JobPosting";
 import ProductBreadcrumb from "commons/layouts/breadcrumb";
+import SimpleMap from "components/home/SimpleMap";
 
 const ContactPage = (props: any) => {
   const { isServer } = props;
@@ -33,12 +34,12 @@ const ContactPage = (props: any) => {
             ))}
           </Accordion>
           <Stack spacing={{ base: '4', md: '6' }} minW={360} minH={360}>
-            {/* <SimpleMap/> */}
+            <SimpleMap/>
             {/* <LeafletMap/> */}
-            <Image
+            {/* <Image
               src="https://res.cloudinary.com/datasource/image/upload/v1731770871/shanovina/rvogfsg7mfvauf4ieg1d.png"
               alt="Shanovina"
-            />
+            /> */}
           </Stack>
         </SimpleGrid>
       </Container>
