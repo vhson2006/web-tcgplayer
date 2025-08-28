@@ -21,7 +21,7 @@ jobs:
           NEXT_PUBLIC_API_URL: https://api.shanovina.com/
           NEXT_PUBLIC_WEB: https://shanovina.com
           GOOGLE_MAP: ${{ secrets.GOOGLE_MAP_KEY }}
-          GOOGLE_ANALYTICS: G-MRZRNB1YVR
+          GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_GA_KEY }}
           ESLINT_NO_DEV_ERRORS: true
           DISABLE_ESLINT_PLUGIN: true
         run: |
