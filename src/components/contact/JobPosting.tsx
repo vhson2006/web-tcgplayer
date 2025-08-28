@@ -16,7 +16,7 @@ export const jobListings = [
     title: 'Trụ Sở',
     description:
       'We are seeking a talented software engineer to join our team and contribute to the development of cutting-edge software solutions. You will collaborate with cross-functional teams to design, implement, and test software applications.',
-    location: '82/27 Dương Bá Trạc, Quận 8, Hồ Chí Minh, Việt Nam',
+    location: '125 Đào Duy Từ, Quận 5, Hồ Chí Minh, Việt Nam',
     time: 'Cả Ngày',
     email: 'vhson2006@gmail.com',
     phone: '0984763100',
