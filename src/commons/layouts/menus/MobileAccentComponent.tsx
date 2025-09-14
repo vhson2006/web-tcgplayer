@@ -30,13 +30,13 @@ export const MobileAccentComponent = () => {
           </NextLink>
         </MenuItem>
         {
-          newsCategory?.map((e: any, idx: any) => (
-            <MenuItem key={idx}>
-              <NextLink href={makeUrl(`/news?category="${e.value}"`, lang)} passHref>
-                {e.label}
-              </NextLink>
-            </MenuItem>
-          ))
+          // newsCategory?.map((e: any, idx: any) => (
+          //   <MenuItem key={idx}>
+          //     <NextLink href={makeUrl(`/news?category="${e.value}"`, lang)} passHref>
+          //       {e.label}
+          //     </NextLink>
+          //   </MenuItem>
+          // ))
         }
         {
           productCategory?.map((e: any, idx: any) => (

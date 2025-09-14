@@ -23,13 +23,13 @@ export const DesktopAccentComponent = () => {
           </Button>
         </NextLink>
         {
-          newsCategory?.map((e: any, idx: any) => (
-            <NextLink key={idx} href={makeUrl(`/news?category="${e.value}"`, lang)} passHref>
-              <Button aria-current={clearGetParam(asPath) === `/news` ? "page" : undefined}>
-                {e.label}
-              </Button>
-            </NextLink>
-          ))
+          // newsCategory?.map((e: any, idx: any) => (
+          //   <NextLink key={idx} href={makeUrl(`/news?category="${e.value}"`, lang)} passHref>
+          //     <Button aria-current={clearGetParam(asPath) === `/news` ? "page" : undefined}>
+          //       {e.label}
+          //     </Button>
+          //   </NextLink>
+          // ))
         }
         {
           productCategory?.map((e: any, idx: any) => (
