@@ -27,6 +27,7 @@ export const NavButton = (props: any) => {
         variant={variant ? variant : "tertiary"} 
         justifyContent="start" 
         {...buttonProps}
+        fontSize={'sm'}
         leftIcon={icon ? icon : <></>}
       >
         {t(label)}
